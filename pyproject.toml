@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "br-real-estate-funds-analysis"
+version = "0.1.0"
+description = ""
+authors = ["Aldo Monteiro <aldo@gmail.com>"]
+readme = "README.md"
+packages = [{include = "br_real_estate_funds_analysis"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+streamlit = "^1.36.0"
+
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.3.1"
+pylint = "^3.2.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

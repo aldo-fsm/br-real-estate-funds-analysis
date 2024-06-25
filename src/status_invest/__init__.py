@@ -1,0 +1,1 @@
+from src.status_invest.status_invest_extraction_service import StatusInvestExtractionService
