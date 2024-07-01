@@ -4,7 +4,7 @@ from datetime import date
 from src.status_invest.constants import BASE_URL, USER_AGENT, DEFAULT_FILTERS
 
 class StatusInvestApi:
-    def advancedSearch(self):
+    def advanced_search(self):
         response = requests.get(
             f'{BASE_URL}/category/advancedsearchresultpaginated',
             params=dict(
@@ -22,7 +22,7 @@ class StatusInvestApi:
         response.raise_for_status()
         return response.json()
 
-    def getTickerPrices(self, ticker: str):
+    def get_ticker_prices(self, ticker: str):
         response = requests.get(
             f'{BASE_URL}/fii/tickerprice',
             params={
@@ -37,7 +37,7 @@ class StatusInvestApi:
         response.raise_for_status()
         return response.json()
 
-    def getTickerProvents(self, ticker: str):
+    def get_ticker_provents(self, ticker: str):
         response = requests.get(
             f'{BASE_URL}/fii/companytickerprovents',
             params={
@@ -51,7 +51,7 @@ class StatusInvestApi:
         response.raise_for_status()
         return response.json()
 
-    def getTickerNetWorth(self, ticker: str):
+    def get_ticker_net_worth(self, ticker: str):
         response = requests.get(
             f'{BASE_URL}/fii/getpatrimonioliquido',
             params={
@@ -65,7 +65,7 @@ class StatusInvestApi:
         response.raise_for_status()
         return response.json()
 
-    def getResults(self, ticker: str):
+    def get_results(self, ticker: str):
         response = requests.get(
             f'{BASE_URL}/fii/getresultado',
             params={
@@ -79,7 +79,7 @@ class StatusInvestApi:
         response.raise_for_status()
         return response.json()
 
-    def getQuarterlyStatements(self, ticker: str, is_accounting: bool):
+    def get_quarterly_statements(self, ticker: str, is_accounting: bool):
         response = requests.get(
             f'{BASE_URL}/fii/demonstracoestrimestrais',
             params={
@@ -96,7 +96,7 @@ class StatusInvestApi:
         response.raise_for_status()
         return response.json()
 
-    def getRevenues(self, ticker: str):
+    def get_revenues(self, ticker: str):
         response = requests.get(
             f'{BASE_URL}/fii/getreceitas',
             params={
@@ -110,7 +110,7 @@ class StatusInvestApi:
         response.raise_for_status()
         return response.json()
 
-    def getExpenses(self, ticker: str):
+    def get_expenses(self, ticker: str):
         response = requests.get(
             f'{BASE_URL}/fii/getdespesas',
             params={
@@ -124,7 +124,7 @@ class StatusInvestApi:
         response.raise_for_status()
         return response.json()
 
-    def getCash(self, ticker: str):
+    def get_cash(self, ticker: str):
         response = requests.get(
             f'{BASE_URL}/fii/getcaixa',
             params={
@@ -137,3 +137,13 @@ class StatusInvestApi:
         )
         response.raise_for_status()
         return response.json()
+
+    def get_details_page(self, ticker: str) -> str:
+        response = requests.get(
+            f'{BASE_URL}/fundos-imobiliarios/{ticker}',
+            headers={
+                'user-agent': USER_AGENT,
+            },
+        )
+        response.raise_for_status()
+        return response.text

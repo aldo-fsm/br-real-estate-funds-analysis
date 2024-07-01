@@ -9,11 +9,13 @@ packages = [{include = "br_real_estate_funds_analysis"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 streamlit = "^1.36.0"
+beautifulsoup4 = "^4.12.3"
 
 
 [tool.poetry.group.dev.dependencies]
 autopep8 = "^2.3.1"
 pylint = "^3.2.3"
+ipykernel = "^6.29.4"
 
 [build-system]
 requires = ["poetry-core"]
