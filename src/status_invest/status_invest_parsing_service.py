@@ -69,7 +69,7 @@ class StatusInvestParsingService:
             return
         path = os.path.join(source_base_path, 'advanced-search.json')
         data = self.load_json(path)
-        funds = pd.DataFrame(data)
+        funds = pd.DataFrame(data['list'])
         funds = funds.rename(
             columns={
                 'companyid': 'id',
@@ -115,8 +115,8 @@ class StatusInvestParsingService:
                 for item in provents['assetEarningsModels']
             ])
         provents = pd.DataFrame(data)
-        provents = provents[['ticker', 'pd', 'etd', 'v']].rename(columns={
-            'pd': 'data',
+        provents = provents[['ticker', 'ed', 'etd', 'v']].rename(columns={
+            'ed': 'data',
             'etd': 'tipo',
             'v': 'valor',
         })

@@ -34,7 +34,7 @@ class CvmExtractionService:
                     target_dir, 'quarterly-reports', filename)
                 self.storage_service.write_from_path(target_path, path)
 
-    def load_extractions(self):
+    def load_extractions(self) -> pd.DataFrame:
         path = 'metadata/cvm/extractions.csv'
         if self.storage_service.exists(path):
             return self.storage_service.read_from_function(

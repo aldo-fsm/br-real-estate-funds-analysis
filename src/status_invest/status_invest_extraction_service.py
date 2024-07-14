@@ -100,7 +100,7 @@ class StatusInvestExtractionService:
             return json.dumps(data, ensure_ascii=False).encode()
         return str(data).encode()
 
-    def load_extractions(self):
+    def load_extractions(self) -> pd.DataFrame:
         path = 'metadata/status-invest/extractions.csv'
         if self.storage_service.exists(path):
             return self.storage_service.read_from_function(
